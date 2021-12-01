@@ -92,8 +92,8 @@ async def update_employee(request: Request, id: int, db: Session = Depends(get_d
 
 @app.delete("/employee/{id}")
 async def delete_employee(request: Request, id: int, db: Session = Depends(get_database_session)):
-    movie = db.query(Employee).get(id)
-    db.delete(movie)
+    employee = db.query(Employee).get(id)
+    db.delete(employee)
     db.commit()
     return JSONResponse(status_code=200, content={
         "status_code": 200,
